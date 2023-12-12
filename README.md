@@ -123,8 +123,11 @@ Retrieve performance metrics for a specific vendor.
 3. Testing
 
 Running Tests
+
 Run the test suite to ensure the functionality and reliability of the endpoints:
-python manage.py test
+
+$ python manage.py test
+
 Add more testcases as you needed to test in test.py file.
 
 To run the test suite in POSTMAN for your Django application, you can follow these steps:
