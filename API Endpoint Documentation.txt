@@ -1,0 +1,99 @@
+1. Vendor Profile Management
+
+a. Create a new vendor
+Endpoint: POST /api/vendors/
+Description: Create a new vendor profile with the provided information.
+Request Body:
+Required fields: name, contact_details, address, vendor_code
+Response:
+Status: 201 Created
+Body: Vendor details including a unique id.
+
+b. List all vendors
+Endpoint: GET /api/vendors/
+Description: Retrieve a list of all vendors.
+Response:
+Status: 200 OK
+Body: List of vendor details.
+
+c. Retrieve a specific vendor's details
+Endpoint: GET /api/vendors/{vendor_id}/
+Description: Retrieve details of a specific vendor using their unique id.
+Response:
+Status: 200 OK
+Body: Vendor details.
+
+d. Update a vendor's details
+Endpoint: PUT /api/vendors/{vendor_id}/
+Description: Update details of a specific vendor using their unique id.
+Request Body:
+Fields to be updated: name, contact_details, address, vendor_code
+Response:
+Status: 200 OK
+Body: Updated vendor details.
+
+e. Delete a vendor
+Endpoint: DELETE /api/vendors/{vendor_id}/
+Description: Delete a specific vendor using their unique id.
+Response:
+Status: 204 No Content
+
+2. Purchase Order Tracking
+
+a. Create a purchase order
+Endpoint: POST /api/purchase_orders/
+Description: Create a new purchase order with the provided information.
+Request Body:
+Required fields: po_number, vendor, order_date, delivery_date, items, quantity, status, issue_date
+Response:
+Status: 201 Created
+Body: Purchase order details including a unique id.
+
+b. List all purchase orders
+Endpoint: GET /api/purchase_orders/
+Description: Retrieve a list of all purchase orders.
+Query Parameters:
+Optional: vendor (filter by vendor)
+Response:
+Status: 200 OK
+Body: List of purchase order details.
+
+c. Retrieve details of a specific purchase order
+Endpoint: GET /api/purchase_orders/{po_id}/
+Description: Retrieve details of a specific purchase order using its unique id.
+Response:
+Status: 200 OK
+Body: Purchase order details.
+
+d. Update a purchase order
+Endpoint: PUT /api/purchase_orders/{po_id}/
+Description: Update details of a specific purchase order using its unique id.
+Request Body:
+Fields to be updated: po_number, vendor, order_date, delivery_date, items, quantity, status, quality_rating, issue_date
+Response:
+Status: 200 OK
+Body: Updated purchase order details.
+
+e. Delete a purchase order
+Endpoint: DELETE /api/purchase_orders/{po_id}/
+Description: Delete a specific purchase order using its unique id.
+Response:
+Status: 204 No Content
+
+f. Acknowledge a purchase order
+Endpoint: PATCH /api/purchase_orders/{po_id}/acknowledge/
+Description: Acknowledge a purchase order, updating the acknowledgment_date.
+Request Body:
+No request body is required.
+Response:
+Status: 200 OK
+Body: Updated purchase order details.
+
+3. Vendor Performance Evaluation
+
+a. Retrieve a vendor's performance metrics
+Endpoint: GET /api/vendors/{vendor_id}/performance/
+Description: Retrieve performance metrics for a specific vendor.
+Response:
+Status: 200 OK
+Body: Vendor performance metrics including on_time_delivery_rate, quality_rating_avg, average_response_time, fulfillment_rate.
